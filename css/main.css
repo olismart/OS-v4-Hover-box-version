@@ -20,7 +20,7 @@ hr {
   height: 0;
   width: 30%;
   border: 0;
-  border-top: 10px solid #ccc;
+  border-top: 10px solid #7474a3;
   margin: 0 0 1em 0;
   padding: 0; }
 
@@ -54,11 +54,21 @@ body {
   background: white url(../img/contours.png) no-repeat;
   background-size: cover; }
 
+h1 {
+  font-size: 3em;
+  line-height: 0.85;
+  color: #ff4115;
+  margin: 0; }
+
+h2, h3 {
+  font-weight: 500; }
+
 p, li, aside, button {
   font-weight: 200;
   letter-spacing: 0.01em;
   font-size: 0.75em;
-  line-height: 1.6; }
+  line-height: 1.6;
+  color: #1e1e2d; }
 
 button, .button {
   width: 6em;
@@ -123,29 +133,23 @@ button, .button {
 .wrapper {
   width: 100%;
   padding: 1em;
-  margin: 0; }
+  margin: 0;
+  max-width: 75em; }
   .wrapper:after {
     display: table;
     clear: both;
     content: ''; }
 
-.headerContainer header {
-  margin: 1em 0; }
-  .headerContainer header .text {
-    float: left; }
-  .headerContainer header h1 {
-    font-size: 3em;
-    line-height: 0.85;
-    color: #ff4115;
-    margin: 0; }
-  .headerContainer header aside {
-    opacity: 0.5;
-    letter-spacing: 0.3em;
-    text-transform: uppercase;
-    margin: 0.4em 0 0; }
-  .headerContainer header button {
-    float: right;
-    width: 5em; }
+.headerContainer header .text {
+  float: left; }
+.headerContainer header aside {
+  opacity: 0.5;
+  letter-spacing: 0.3em;
+  text-transform: uppercase;
+  margin: 0.4em 0 0; }
+.headerContainer header button {
+  float: right;
+  width: 5em; }
 
 .mainContainer .wrapper {
   transition: all 0.5s ease;
@@ -160,7 +164,6 @@ button, .button {
 .mainContainer article hr {
   margin: 0; }
 .mainContainer article h2 {
-  font-weight: 500;
   margin: 0 0 1em;
   line-height: 1;
   color: #ff4115;
@@ -228,8 +231,8 @@ footer {
   transform: rotate3d(0, 0, 1, -90deg) translate3d(0, -10em, 0);
   -webkit-transform-origin: 0% 100%;
   transform-origin: 0% 100%;
-  -webkit-transition: -webkit-transform 0.15s, opacity 0.3s, background-color 0.3s;
-  transition: transform 0.15s, opacity 0.3s, background-color 5s; }
+  -webkit-transition: -webkit-transform 0.15s, opacity 0.3s, background-color 2s;
+  transition: transform 0.15s, opacity 0.3s, background-color 2s; }
   .modalContainer .modalContent {
     opacity: 0; }
     .modalContainer .modalContent button {
@@ -245,9 +248,19 @@ footer {
     .modalContainer .modalContent .modalInnerWrapper {
       clear: both;
       padding-top: 0.01em; }
+    .modalContainer .modalContent h1, .modalContainer .modalContent p, .modalContainer .modalContent li {
+      color: #fff; }
+    .modalContainer .modalContent hr {
+      margin: 2em 0 .2em;
+      border-top: 10px solid #fff; }
+    .modalContainer .modalContent h3 {
+      margin: 0; }
+    .modalContainer .modalContent ul {
+      padding: 0;
+      margin-top: 0.5em; }
 
 .shown {
-  background: #c82600;
+  background: #e12a00;
   opacity: 1;
   -webkit-transform: rotate3d(0, 0, 1, 0deg) translate3d(0, 0, 0);
   transform: rotate3d(0, 0, 1, 0deg) translate3d(0, 0, 0);
@@ -255,7 +268,7 @@ footer {
   transform-origin: 0% 100%; }
   .shown .modalContent {
     opacity: 1;
-    transition: opacity 1.3s ease-in; }
+    transition: opacity 0.8s ease-in; }
 
 /* ==========================================================================
    Media Queries
@@ -265,20 +278,40 @@ footer {
     font-size: 1em;
     line-height: 1.5; }
 
-  .headerContainer header h1 {
+  h1 {
     font-size: 3.5em; }
 
   .mainContainer article .sliderWrapper .unslider-arrow {
     font-size: 2.5em; } }
+@media only screen and (min-width: 32em) {
+  .wrapper {
+    max-width: 90%;
+    margin: 0 auto; } }
+@media only screen and (min-width: 38em) {
+  .wrapper {
+    padding: 2em 3em;
+    max-width: 90%;
+    margin: 0 auto; }
+
+  .mainContainer article h2 {
+    font-size: 2em;
+    padding-top: 0.5em; }
+  .mainContainer article p {
+    margin: 2em 0; }
+  .mainContainer article .sliderWrapper .unslider-arrow {
+    font-size: 3em; } }
 @media only screen and (min-width: 50em) {
   /* initate 2 column layout */
   .wrapper {
     margin: 2em auto;
-    padding: 4em;
+    padding: 3em;
     transition: all 0.5s ease; }
 
-  .headerContainer header h1 {
+  h1 {
     font-size: 4em; }
+
+  button {
+    width: 8em; }
 
   .mainContainer .wrapper:hover {
     background: #fff;
@@ -302,11 +335,14 @@ footer {
     float: left;
     width: 30%;
     clear: none; }
-  .mainContainer article .button {
-    clear: none; }
   .mainContainer article .sliderWrapper {
     float: right;
     width: 65%; }
+
+  .modalContainer .modalContent .modalInnerWrapper {
+    clear: none;
+    float: left;
+    max-width: 30em; }
 
   footer p {
     margin-top: 0;
@@ -314,6 +350,10 @@ footer {
     float: left; }
   footer .socialLinks {
     float: right; } }
+@media only screen and (min-width: 70em) {
+  .wrapper {
+    max-width: 70em;
+    margin: auto; } }
 /* ==========================================================================
    Helper classes
    ========================================================================== */

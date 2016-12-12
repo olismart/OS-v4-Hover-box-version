@@ -1,5 +1,5 @@
 $orange: #ff4115;
-
+$grey: #1e1e2d;
 
 @mixin clearfix {
   &:after {
@@ -35,7 +35,7 @@ hr {
 	height: 0;
 	width: 30%;
 	border: 0;
-	border-top: 10px solid #ccc;
+	border-top: 10px solid lighten($grey, 40%);
 	margin: 0 0 1em 0;
 	padding: 0;
 }
@@ -73,11 +73,21 @@ body {
 	background: #fff url(../img/contours.png) no-repeat;
 	background-size: cover;
 }
+h1{
+	font-size: 3em;
+	line-height: 0.85;
+	color: $orange;
+	margin: 0;
+}
+h2, h3{
+	font-weight: 500;
+}
 p, li, aside, button{
 	font-weight: 200;
 	letter-spacing: 0.01em;
 	font-size: 0.75em;
 	line-height: 1.6;
+	color: $grey;
 }
 button, .button{
 	width: 6em;
@@ -110,7 +120,7 @@ button, .button{
 	left: 0;
 	width: 150%;
 	height: 100%;
-	background: #ff4115;
+	background: $orange;
 	color: #fff;
 	z-index: -1;
 	-webkit-transform: rotate3d(0, 0, 1, -45deg) translate3d(0, -3em, 0);
@@ -122,15 +132,15 @@ button, .button{
 }
 .button--wayra:hover {
 	color: #fff;
-	border-color: #ff4115;
+	border-color: $orange;
 }
 .button--wayra.button--inverted:hover {
-	color: #ff4115;
+	color: $orange;
 	border-color: #fff;
 }
 .button--wayra:hover::before {
 	opacity: 1;
-	background-color: #ff4115;
+	background-color: $orange;
 	-webkit-transform: rotate3d(0, 0, 1, 0deg);
 	transform: rotate3d(0, 0, 1, 0deg);
 	-webkit-transition-timing-function: cubic-bezier(0.2, 1, 0.3, 1);
@@ -147,18 +157,12 @@ button, .button{
 	width: 100%;
 	padding: 1em;
 	margin: 0;
+	max-width: 75em;
 }
 
 .headerContainer header{
-	margin: 1em 0;
 	.text{
 		float: left;
-	}
-	h1{
-		font-size: 3em;
-		line-height: 0.85;
-		color: $orange;
-		margin: 0;
 	}
 	aside{
 		opacity: 0.5;
@@ -189,7 +193,6 @@ button, .button{
 			margin: 0;
 		}
 		h2{
-			font-weight: 500;
 			margin: 0 0 1em;
 			line-height: 1;
 			color: $orange;
@@ -251,6 +254,7 @@ footer{
 	.socialIcon:hover{
 		fill: $orange;
 	}
+
 }
 
 
@@ -269,8 +273,8 @@ footer{
 	transform: rotate3d(0, 0, 1, -90deg) translate3d(0, -10em, 0);
 	-webkit-transform-origin: 0% 100%;
 	transform-origin: 0% 100%;
-	-webkit-transition: -webkit-transform 0.15s, opacity 0.3s, background-color 0.3s;
-	transition: transform 0.15s, opacity 0.3s, background-color 5s;
+	-webkit-transition: -webkit-transform 0.15s, opacity 0.3s, background-color 2s;
+	transition: transform 0.15s, opacity 0.3s, background-color 2s;
 	.modalContent{
 		opacity: 0;
 		button{
@@ -289,10 +293,24 @@ footer{
 			clear: both;
 			padding-top: 0.01em;
 		}
+		h1, p, li{
+			color: #fff;
+		}
+		hr{
+			margin: 2em 0 .2em;
+			border-top: 10px solid #fff;
+		}
+		h3{
+			margin: 0;
+		}
+		ul{
+			padding: 0;
+			margin-top: 0.5em;
+		}
 	}
 }
 .shown{
-	background: darken($orange, 15%);
+	background: darken($orange, 10%);
 	opacity: 1;
 	-webkit-transform: rotate3d(0, 0, 1, -0deg) translate3d(0, 0, 0);
 	transform: rotate3d(0, 0, 1, -0deg) translate3d(0, 0, 0);
@@ -300,7 +318,7 @@ footer{
 	transform-origin: 0% 100%;
 	.modalContent{
 		opacity: 1;
-		transition: opacity 1.3s ease-in;
+		transition: opacity 0.8s ease-in;
 	}
 
 }
@@ -317,11 +335,10 @@ footer{
 		font-size: 1em;
 		line-height: 1.5;
 	}
-	.headerContainer header{
-		h1{
-			font-size: 3.5em;
-		}
+	h1{
+		font-size: 3.5em;
 	}
+
 	.mainContainer{
 		article{
 			.sliderWrapper{
@@ -332,20 +349,50 @@ footer{
 		}
 	}
 }
+@media only screen and (min-width: 32em) {
+	.wrapper{
+		max-width: 90%;
+		margin: 0 auto;
+	}
+}
+@media only screen and (min-width: 38em) {
+	.wrapper{
+		padding: 2em 3em;
+		max-width: 90%;
+		margin: 0 auto;
+	}
+	.mainContainer{
+			article{
+				h2{
+					font-size: 2em;
+					padding-top: 0.5em;
+				}
+				p{
+					margin: 2em 0;
+				}
+				.sliderWrapper{
+					.unslider-arrow{
+						font-size: 3em;
+					}
+				}
+			}
+		}
+
+	}
 
 @media only screen and (min-width: 50em) {  /* initate 2 column layout */
 	.wrapper{
 		margin: 2em auto;
-		padding: 4em;
+		padding: 3em;
 		transition: all 0.5s ease;
 	}
-	.headerContainer header{
-		h1{
-			font-size: 4em;
-		}
+	h1{
+		font-size: 4em;
+	}
+	button{
+		width: 8em;
 	}
 	.mainContainer{ 
-		
 		.wrapper:hover{
 			background: #fff;
 			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
@@ -371,12 +418,19 @@ footer{
 				width: 30%;
 				clear: none;
 			}
-			.button{
-				clear: none;
-			}
+			
 			.sliderWrapper{
 				float: right;
 				width: 65%;
+			}
+		}
+	}
+	.modalContainer{
+		.modalContent{
+			.modalInnerWrapper{
+				clear: none;
+				float: left;
+				max-width: 30em;
 			}
 		}
 	}
@@ -391,7 +445,12 @@ footer{
 		}
 	}
 }
-
+@media only screen and (min-width: 70em) { 
+	.wrapper{
+		max-width: 70em;
+		margin: auto;
+	}
+}
 /* ==========================================================================
    Helper classes
    ========================================================================== */
