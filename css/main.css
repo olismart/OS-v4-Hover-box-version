@@ -1,4 +1,7 @@
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
+* {
+  box-sizing: border-box; }
+
 html {
   color: #222;
   font-size: 1em;
@@ -53,7 +56,9 @@ body {
 
 p, li, aside, button {
   font-weight: 200;
-  letter-spacing: 0.01em; }
+  letter-spacing: 0.01em;
+  font-size: 0.75em;
+  line-height: 1.6; }
 
 button, .button {
   width: 6em;
@@ -116,38 +121,38 @@ button, .button {
   background-color: #fff; }
 
 .wrapper {
-  width: 60%;
-  padding: 2em 4em;
-  margin: 2em auto; }
+  width: 100%;
+  padding: 1em;
+  margin: 0; }
   .wrapper:after {
     display: table;
     clear: both;
     content: ''; }
 
-.headerContainer header .text {
-  float: left; }
-.headerContainer header h1 {
-  font-size: 4em;
-  line-height: 0.85;
-  color: #ff4115;
-  margin: 0; }
-.headerContainer header aside {
-  opacity: 0.5;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  margin: 0.4em 0 0; }
-.headerContainer header button {
-  float: right;
-  width: 8em; }
+.headerContainer header {
+  margin: 1em 0; }
+  .headerContainer header .text {
+    float: left; }
+  .headerContainer header h1 {
+    font-size: 3em;
+    line-height: 0.85;
+    color: #ff4115;
+    margin: 0; }
+  .headerContainer header aside {
+    opacity: 0.5;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    margin: 0.4em 0 0; }
+  .headerContainer header button {
+    float: right;
+    width: 5em; }
 
 .mainContainer .wrapper {
-  padding: 4em;
-  transition: all 0.5s ease; }
+  transition: all 0.5s ease;
+  margin-bottom: 3em; }
 .mainContainer .wrapper:hover {
   background: #fff;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); }
-.mainContainer article header {
-  width: 30%; }
 .mainContainer article:after {
   display: table;
   clear: both;
@@ -156,22 +161,24 @@ button, .button {
   margin: 0; }
 .mainContainer article h2 {
   font-weight: 500;
-  border-top: 10px solid #ccc;
-  margin: 0;
-  padding-top: 1em;
+  margin: 0 0 1em;
   line-height: 1;
-  color: #ff4115; }
-.mainContainer article .text {
-  float: left;
-  width: 30%; }
+  color: #ff4115;
+  padding-top: 0.3em; }
 .mainContainer article .button {
   clear: both;
   float: left;
   margin-top: 0.5em;
   width: auto; }
+.mainContainer article p {
+  clear: both; }
+  .mainContainer article p:after {
+    display: table;
+    clear: both;
+    content: ''; }
+.mainContainer article .unslider {
+  padding-bottom: 3em; }
 .mainContainer article .sliderWrapper {
-  float: right;
-  width: 65%;
   position: relative; }
   .mainContainer article .sliderWrapper:after {
     display: table;
@@ -179,9 +186,13 @@ button, .button {
     content: ''; }
   .mainContainer article .sliderWrapper .unslider-arrow {
     color: #ff4115;
-    font-size: 3em;
+    font-size: 2em;
     font-weight: 700;
     transition: all 0.2s ease; }
+    .mainContainer article .sliderWrapper .unslider-arrow:after {
+      display: table;
+      clear: both;
+      content: ''; }
   .mainContainer article .sliderWrapper .unslider-arrow:hover {
     color: #c82600; }
   .mainContainer article .sliderWrapper .prev:hover {
@@ -189,17 +200,19 @@ button, .button {
   .mainContainer article .sliderWrapper .next:hover {
     right: 15px; }
 
-footer hr {
-  border-top: 10px solid #ff4115; }
-footer .socialLinks a {
-  text-decoration: none; }
-footer .socialIcon {
-  fill: #999;
-  width: 1.5em;
-  margin-right: 1em;
-  transition: all 0.2s ease; }
-footer .socialIcon:hover {
-  fill: #ff4115; }
+footer {
+  padding-bottom: 1em; }
+  footer hr {
+    border-top: 10px solid #ff4115; }
+  footer .socialLinks a {
+    text-decoration: none; }
+  footer .socialIcon {
+    fill: #999;
+    width: 1.5em;
+    margin-right: 1em;
+    transition: all 0.2s ease; }
+  footer .socialIcon:hover {
+    fill: #ff4115; }
 
 .modalContainer {
   background: #ff4115;
@@ -219,10 +232,8 @@ footer .socialIcon:hover {
   transition: transform 0.15s, opacity 0.3s, background-color 5s; }
   .modalContainer .modalContent {
     opacity: 0; }
-    .modalContainer .modalContent p {
-      padding-right: 10em; }
     .modalContainer .modalContent button {
-      width: 8em;
+      width: 5em;
       float: right;
       color: #fff;
       border: 1px solid #fff;
@@ -231,6 +242,9 @@ footer .socialIcon:hover {
     .modalContainer .modalContent button:hover {
       background: #fff;
       color: #ff4115; }
+    .modalContainer .modalContent .modalInnerWrapper {
+      clear: both;
+      padding-top: 0.01em; }
 
 .shown {
   background: #c82600;
@@ -241,14 +255,65 @@ footer .socialIcon:hover {
   transform-origin: 0% 100%; }
   .shown .modalContent {
     opacity: 1;
-    transition: opacity 1.3s ease-in-out; }
+    transition: opacity 1.3s ease-in; }
 
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+@media only screen and (min-width: 24em) {
+  p, li, aside, button {
+    font-size: 1em;
+    line-height: 1.5; }
+
+  .headerContainer header h1 {
+    font-size: 3.5em; }
+
+  .mainContainer article .sliderWrapper .unslider-arrow {
+    font-size: 2.5em; } }
+@media only screen and (min-width: 50em) {
+  /* initate 2 column layout */
+  .wrapper {
+    margin: 2em auto;
+    padding: 4em;
+    transition: all 0.5s ease; }
+
+  .headerContainer header h1 {
+    font-size: 4em; }
+
+  .mainContainer .wrapper:hover {
+    background: #fff;
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3); }
+  .mainContainer article header {
+    width: 30%; }
+  .mainContainer article:after {
+    display: table;
+    clear: both;
+    content: ''; }
+  .mainContainer article hr {
+    display: none; }
+  .mainContainer article h2 {
+    font-weight: 500;
+    border-top: 10px solid #ccc;
+    margin: 0;
+    padding-top: 1em;
+    line-height: 1;
+    color: #ff4115; }
+  .mainContainer article .text {
+    float: left;
+    width: 30%;
+    clear: none; }
+  .mainContainer article .button {
+    clear: none; }
+  .mainContainer article .sliderWrapper {
+    float: right;
+    width: 65%; }
+
+  footer p {
+    margin-top: 0;
+    display: inline-block;
+    float: left; }
+  footer .socialLinks {
+    float: right; } }
 /* ==========================================================================
    Helper classes
    ========================================================================== */
@@ -277,17 +342,6 @@ footer .socialIcon:hover {
 
 .invisible {
   visibility: hidden; }
-
-.clearfix:before,
-.clearfix:after {
-  content: " ";
-  display: table; }
-
-.clearfix:after {
-  clear: both; }
-
-.clearfix {
-  *zoom: 1; }
 
 /* ==========================================================================
    Print styles

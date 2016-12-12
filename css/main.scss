@@ -1,5 +1,6 @@
 $orange: #ff4115;
-$boxPadding: 2em 4em;
+
+
 @mixin clearfix {
   &:after {
 	display: table;
@@ -10,7 +11,9 @@ $boxPadding: 2em 4em;
 
 
 /*! HTML5 Boilerplate v5.0 | MIT License | http://h5bp.com/ */
-
+*{
+	box-sizing: border-box;
+}
 html {
 	color: #222;
 	font-size: 1em;
@@ -73,6 +76,8 @@ body {
 p, li, aside, button{
 	font-weight: 200;
 	letter-spacing: 0.01em;
+	font-size: 0.75em;
+	line-height: 1.6;
 }
 button, .button{
 	width: 6em;
@@ -139,17 +144,18 @@ button, .button{
 
 .wrapper {
 	@include clearfix;
-	width: 60%;
-	padding: $boxPadding;
-	margin: 2em auto;
+	width: 100%;
+	padding: 1em;
+	margin: 0;
 }
 
 .headerContainer header{
+	margin: 1em 0;
 	.text{
 		float: left;
 	}
 	h1{
-		font-size: 4em;
+		font-size: 3em;
 		line-height: 0.85;
 		color: $orange;
 		margin: 0;
@@ -162,7 +168,7 @@ button, .button{
 	}
 	button{
 		float: right;
-		width: 8em;
+		width: 5em;
 	}
 	
 }
@@ -170,15 +176,12 @@ button, .button{
 
 .mainContainer{ 
 	.wrapper{
-		padding: 4em;
 		transition: all 0.5s ease;
+		margin-bottom: 3em;
 	}
 	.wrapper:hover{
 		background: #fff;
 		box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
-	}
-	article header{
-		width: 30%;
 	}
 	article{
 		@include clearfix;
@@ -187,37 +190,32 @@ button, .button{
 		}
 		h2{
 			font-weight: 500;
-			border-top: 10px solid #ccc;
-			margin: 0;
-			padding-top: 1em;
+			margin: 0 0 1em;
 			line-height: 1;
 			color: $orange;
+			padding-top: 0.3em;
 		}
-		.text{
-			float:left;
-			width: 30%;
-		}
-		p{
 
-		}
-		img{
-			
-		}
 		.button{
 			clear: both;
 			float: left;
 			margin-top: 0.5em;
 			width: auto;
 		}
-
+		p{
+			clear: both;
+			@include clearfix;
+		}
+		.unslider{
+			padding-bottom: 3em;
+		}
 		.sliderWrapper{
-			float: right;
-			width: 65%;
 			@include clearfix;
 			position: relative;
 			.unslider-arrow{
+				@include clearfix;
 				color: $orange;
-				font-size: 3em;
+				font-size: 2em;
 				font-weight: 700;
 				transition: all 0.2s ease;
 			}
@@ -235,6 +233,7 @@ button, .button{
 	}
 }
 footer{
+	padding-bottom: 1em;
 	hr{
 		border-top: 10px solid $orange;
 	}
@@ -274,11 +273,8 @@ footer{
 	transition: transform 0.15s, opacity 0.3s, background-color 5s;
 	.modalContent{
 		opacity: 0;
-		p{
-			padding-right: 10em;
-		}
 		button{
-			width: 8em;
+			width: 5em;
 			float:right;
 			color: #fff;
 			border: 1px solid #fff;
@@ -288,6 +284,10 @@ footer{
 		button:hover{
 			background: #fff;
 			color: $orange;
+		}
+		.modalInnerWrapper{
+			clear: both;
+			padding-top: 0.01em;
 		}
 	}
 }
@@ -300,34 +300,10 @@ footer{
 	transform-origin: 0% 100%;
 	.modalContent{
 		opacity: 1;
-		transition: opacity 1.3s ease-in-out;
-
+		transition: opacity 1.3s ease-in;
 	}
 
 }
-
-
-
-
-
-
-/* ==========================================================================
-   Author's custom styles
-   ========================================================================== */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 /* ==========================================================================
    Media Queries
@@ -336,12 +312,84 @@ footer{
 
 
 
-@media only screen and (min-width: 768px) {
-
+@media only screen and (min-width: 24em) {
+	p, li, aside, button{
+		font-size: 1em;
+		line-height: 1.5;
+	}
+	.headerContainer header{
+		h1{
+			font-size: 3.5em;
+		}
+	}
+	.mainContainer{
+		article{
+			.sliderWrapper{
+				.unslider-arrow{
+					font-size: 2.5em;
+				}
+			}
+		}
+	}
 }
 
-@media only screen and (min-width: 1140px) {
-
+@media only screen and (min-width: 50em) {  /* initate 2 column layout */
+	.wrapper{
+		margin: 2em auto;
+		padding: 4em;
+		transition: all 0.5s ease;
+	}
+	.headerContainer header{
+		h1{
+			font-size: 4em;
+		}
+	}
+	.mainContainer{ 
+		
+		.wrapper:hover{
+			background: #fff;
+			box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+		}
+		article header{
+			width: 30%;
+		}
+		article{
+			@include clearfix;
+			hr{
+				display: none;
+			}
+			h2{
+				font-weight: 500;
+				border-top: 10px solid #ccc;
+				margin: 0;
+				padding-top: 1em;
+				line-height: 1;
+				color: $orange;
+			}
+			.text{
+				float:left;
+				width: 30%;
+				clear: none;
+			}
+			.button{
+				clear: none;
+			}
+			.sliderWrapper{
+				float: right;
+				width: 65%;
+			}
+		}
+	}
+	footer{
+		p{
+			margin-top: 0;
+			display: inline-block;
+			float: left;
+		}
+		.socialLinks{
+			float: right;
+		}
+	}
 }
 
 /* ==========================================================================
@@ -378,19 +426,6 @@ footer{
 	visibility: hidden;
 }
 
-.clearfix:before,
-.clearfix:after {
-	content: " ";
-	display: table;
-}
-
-.clearfix:after {
-	clear: both;
-}
-
-.clearfix {
-	*zoom: 1;
-}
 
 /* ==========================================================================
    Print styles
