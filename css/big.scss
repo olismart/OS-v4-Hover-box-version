@@ -153,6 +153,7 @@ footer{
 	}
 }
 .shown{
+	position: fixed;
 	background: darken($orange, 15%);
 	opacity: 1;
 	-webkit-transform: rotate3d(0, 0, 1, -0deg) translate3d(0, 0, 0);
