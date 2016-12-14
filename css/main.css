@@ -55,7 +55,7 @@ body {
   background-size: cover; }
 
 h1 {
-  font-size: 3em;
+  font-size: 15vmin;
   line-height: 0.85;
   color: #ff4115;
   margin: 0; }
@@ -320,9 +320,6 @@ footer {
     font-size: 1em;
     line-height: 1.5; }
 
-  h1 {
-    font-size: 3.5em; }
-
   .mainContainer article .sliderWrapper .unslider-arrow {
     font-size: 2.5em; } }
 @media only screen and (min-width: 32em) {
@@ -345,15 +342,12 @@ footer {
 
   footer .emailLink {
     font-size: 1.25em; } }
-@media only screen and (min-width: 38em) and (min-width: 50em) {
+@media only screen and (min-width: 50em) {
   /* initate 2 column layout */
   .wrapper {
     margin: 2em auto;
     padding: 3em;
     transition: all 0.5s ease; }
-
-  h1 {
-    font-size: 4em; }
 
   button {
     width: 8em; }
