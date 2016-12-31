@@ -70,14 +70,27 @@ body {
 	font-size: 1em;
 	line-height: 1.4;
 	font-family: "signo", Helvetica, Helvetica Neue, Arial;
-	background: #fff url(../img/contours.png) no-repeat;
-	background-size: cover;
+	/*background: #fff url(../img/contours.png) no-repeat;
+	background-size: cover;*/
+}
+.background{
+	z-index: -1;
+	position: fixed;
+	min-width: 100%;
+	min-height: 100%;
+	top: 0;
+	bottom: 0;
+	text-align: center;
+	margin: 0 auto;
 }
 h1{
+	font-family: 'lust-display', serif;
 	font-size: 15vmin;
 	line-height: 0.85;
+	letter-spacing: -0.03em;
 	color: $orange;
 	margin: 0;
+	font-weight: 400;
 }
 h2, h3{
 	font-weight: 500;
@@ -200,7 +213,6 @@ button, .button{
 		}
 
 		.button{
-			clear: both;
 			float: left;
 			margin-top: 0.5em;
 			width: auto;
@@ -290,6 +302,7 @@ footer{
 		fill: #ccc;
 		width: 1.5em;
 		margin-right: 1em;
+		transition: all 0.2s ease;
 	}
 	.socialIcon:hover{
 		fill: $orange;
