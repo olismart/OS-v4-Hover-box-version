@@ -1,5 +1,6 @@
 $orange: #ff4115;
 $grey: #1e1e2d;
+$lightGrey: #cccccc;
 
 @mixin clearfix {
   &:after {
@@ -35,7 +36,7 @@ hr {
 	height: 0;
 	width: 30%;
 	border: 0;
-	border-top: 10px solid #ccc;
+	border-top: 10px solid $lightGrey;
 	margin: 0 0 1em 0;
 	padding: 0;
 }
@@ -62,7 +63,7 @@ textarea {
 
 .browserupgrade {
 	margin: 0.2em 0;
-	background: #ccc;
+	background: $lightGrey;
 	color: #000;
 	padding: 0.2em 0;
 }
@@ -84,9 +85,9 @@ body {
 	margin: 0 auto;
 }
 h1{
-	font-family: 'lust-display', serif;
+	font-family: 'lust', 'signo', Helvetica, Helvetica Neue, Arial;
 	font-size: 15vmin;
-	line-height: 0.85;
+	line-height: 0.80;
 	letter-spacing: -0.03em;
 	color: $orange;
 	margin: 0;
@@ -176,12 +177,14 @@ button, .button{
 .headerContainer header{
 	.text{
 		float: left;
+		margin: 1.5em 0;
 	}
 	aside{
 		opacity: 0.5;
 		letter-spacing: 0.3em;
 		text-transform: uppercase;
 		margin: 0.4em 0 0;
+		line-height: 0;
 	}
 	button{
 		float: right;
@@ -216,10 +219,21 @@ button, .button{
 			float: left;
 			margin-top: 0.5em;
 			width: auto;
+			clear: left;
 		}
 		p{
 			clear: both;
 			@include clearfix;
+			a{
+				color: inherit;
+				transition: color 0.3s ease;
+			}
+			a:hover{
+				color: $orange;
+			}
+		}
+		p+p{
+			margin-top: 0;
 		}
 		.unslider{
 			padding-bottom: 3em;
@@ -257,7 +271,7 @@ footer{
 		background: $orange;
 		
 	}
-	hr:after{
+	/*hr:after{
 		content: '';
 		position: absolute;
 		top: 0;
@@ -273,7 +287,7 @@ footer{
 
 	hr:hover::after{
 		transform: translatex(0);
-	}
+	}*/
 	a{
 		text-decoration: none;
 		transition: all 0.2s ease;
@@ -282,7 +296,7 @@ footer{
 		width: 1.3em;
 		margin-left: 0.5em;
 		cursor: pointer;
-		fill: #ccc;
+		fill: $lightGrey;
 		transition: all 0.2s ease;
 	}
 	.copyAddress:hover{
@@ -290,7 +304,7 @@ footer{
 	}
 	.emailLink{
 		font-size: 1.125em;
-		color: #ccc;
+		color: $lightGrey;
 	}
 	.emailLink:hover{
 		color: $orange;
@@ -299,7 +313,7 @@ footer{
 		padding:  1.5em 0;
 	}
 	.socialIcon{
-		fill: #ccc;
+		fill: $lightGrey;
 		width: 1.5em;
 		margin-right: 1em;
 		transition: all 0.2s ease;
@@ -309,7 +323,7 @@ footer{
 	}
 	p{	
 		font-size: 0.875em;
-		color: #ccc;
+		color: $lightGrey;
 		margin-top: 0;
 	}
 }
@@ -353,6 +367,16 @@ footer{
 		h1, p, li{
 			color: #fff;
 		}
+		p{
+			a{
+				color: inherit;
+				transition: color 0.3s ease;
+			}
+			a:hover{
+				color: $grey;
+			}
+		}
+
 		hr{
 			margin: 2em 0 .2em;
 			border-top: 10px solid #fff;
@@ -361,7 +385,7 @@ footer{
 			margin: 0;
 		}
 		ul{
-			padding: 0;
+			padding-left: 1em;
 			margin-top: 0.5em;
 		}
 	}
@@ -396,8 +420,6 @@ footer{
 		font-size: 1em;
 		line-height: 1.5;
 	}
-
-
 	.mainContainer{
 		article{
 			.sliderWrapper{
@@ -412,6 +434,12 @@ footer{
 	.wrapper{
 		max-width: 90%;
 		margin: 0 auto;
+		h2{
+			font-size: 2em;
+		}
+	}
+	h1{
+		font-family: 'lust-display', 'signo', Helvetica, Helvetica Neue, Arial;
 	}
 }
 @media only screen and (min-width: 38em) {
@@ -423,7 +451,7 @@ footer{
 	.mainContainer{
 		article{
 			h2{
-				font-size: 2em;
+				font-size: 2.3em;
 				padding-top: 0.5em;
 			}
 			p{
@@ -451,6 +479,7 @@ footer{
 	button{
 		width: 8em;
 	}
+	
 	.mainContainer{ 
 		.wrapper:hover{
 			background: #fff;
@@ -475,7 +504,7 @@ footer{
 			.text{
 				float:left;
 				width: 30%;
-				clear: none;
+				clear: left;
 			}
 			
 			.sliderWrapper{
@@ -484,15 +513,7 @@ footer{
 			}
 		}
 	}
-	.modalContainer{
-		.modalContent{
-			.modalInnerWrapper{
-				clear: none;
-				float: left;
-				max-width: 30em;
-			}
-		}
-	}
+	
 	footer{
 		.emailLink{
 			font-size: 1.25em;
@@ -505,11 +526,36 @@ footer{
 		}
 		.socialLinks{
 			float: right;
+			padding-top: 0;
+		}
+		.socialIcon{
+			width: 2em;
 		}
 	}
 }
+@media only screen and (min-width: 62em) { 
 
-@media only screen and (min-width: 70em) { 
+.modalContainer{
+		.modalContent{
+			.modalInnerWrapper{
+				.aboutMe{
+					float: left;
+					max-width: 35em;
+				}
+				.services{
+					float: right;
+					hr{
+						width: 100%;
+					}
+				}
+			}
+		}
+	}
+}
+@media only screen and (min-width: 70em) {
+	p, li{
+		font-size: 1.125em;
+	} 
 	.wrapper{
 		max-width: 70em;
 		margin: auto;
