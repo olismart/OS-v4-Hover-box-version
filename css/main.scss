@@ -37,17 +37,12 @@ hr {
 	height: 0;
 	width: 30%;
 	border: 0;
-	border-top: 10px solid $lightGrey;
+	border-top: 10px solid #e9e7e8;
 	margin: 0 0 1em 0;
 	padding: 0;
 }
 
-audio,
-canvas,
-iframe,
-img,
-svg,
-video {
+audio, canvas, iframe, img, svg, video {
 	vertical-align: middle;
 	max-width: 100%;
 }
@@ -73,8 +68,6 @@ body {
 	line-height: 1.4;
 	font-family: "signo", Helvetica, Helvetica Neue, Arial;
 	background: #fff;
-	/*background: #fff url(../img/contours.png) no-repeat;
-	background-size: cover;*/
 }
 .background{
 	z-index: -1;
@@ -101,7 +94,7 @@ h2, h3{
 p, li, aside, button{
 	font-weight: 200;
 	letter-spacing: 0.01em;
-	font-size: 0.75em;
+	font-size: 0.875em;
 	line-height: 1.6;
 	color: $grey;
 }
@@ -211,10 +204,14 @@ button, .button{
 			margin: 0;
 		}
 		h2{
-			margin: 0 0 1em;
+			font-size: 1.75em;
+			margin: 0.5em 0 1em 0;
 			line-height: 1;
 			color: $orange;
 			padding-top: 0.3em;
+			br{
+				display: none;
+			}
 		}
 
 		.button{
@@ -480,6 +477,9 @@ footer{
 				padding-top: 1em;
 				line-height: 1;
 				color: $orange;
+				br{
+					display: block;
+				}
 			}
 			.text{
 				float:left;
